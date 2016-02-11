@@ -39,7 +39,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity implements SensorEventListener, LocationListener {
 
     SensorManager mSensorManager;
-    Sensor mAcc, mLight, mProximity, mMagnetic,mheart;
+    Sensor mAcc, mLight, mProximity, mMagnetic,mheart,msteps;
     TextView textView, Acc, Lig, Pro, Mag, LocationText;
     Button cameraClick;
     ImageView displayImage;
@@ -60,11 +60,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         mProximity = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         mMagnetic = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         mheart = mSensorManager.getDefaultSensor(Sensor.TYPE_HEART_RATE);
+        msteps = mSensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
+
+        mSensorManager.registerListener(this, mheart, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, msteps, SensorManager.SENSOR_DELAY_NORMAL);
+
         mSensorManager.registerListener(this, mAcc, SensorManager.SENSOR_DELAY_NORMAL);
         mSensorManager.registerListener(this, mLight, SensorManager.SENSOR_DELAY_NORMAL);
         mSensorManager.registerListener(this, mProximity, SensorManager.SENSOR_DELAY_NORMAL);
         mSensorManager.registerListener(this, mMagnetic, SensorManager.SENSOR_DELAY_NORMAL);
-        mSensorManager.registerListener(this, mheart, SensorManager.SENSOR_DELAY_NORMAL);
 
         textView = (TextView) findViewById(R.id.text);
         Acc = (TextView) findViewById(R.id.text1);
@@ -116,21 +120,51 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        String lightdata = null,proximitydata = null;
-        if (event.sensor == mAcc) {
+        if (event.sensor == mAcc)
             Acc.setText(event.values[0] + "," + event.values[1] + "," + event.values[2]);
-
-        }
-        if (event.sensor == mLight) {
+        if (event.sensor == mLight)
             Lig.setText("" + event.values[0]);
-            lightdata=event.values[0]+"";
-        }
         if (event.sensor == mMagnetic)
             Mag.setText(event.values[0] + "");
-        if (event.sensor == mProximity) {
+        if (event.sensor == mProximity)
             Pro.setText(event.values[0] + "");
-            proximitydata=event.values[0]+"";
+        if (event.sensor==msteps){
+            Toast.makeText(MainActivity.this, ""+event.values[0], Toast.LENGTH_SHORT).show();
+            String baseDir = Environment.getExternalStorageDirectory().getAbsolutePath();
+            Log.e("directory", baseDir);
+            String fileName = "StepsData.csv";
+            String filePath = baseDir + File.separator + fileName;
+            File f = new File(filePath);
+            CSVWriter writer = null;
+// File exist
+            if (f.exists() && !f.isDirectory()) {
+                FileWriter mFileWriter = null;
+                try {
+                    mFileWriter = new FileWriter(filePath, true);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                writer = new CSVWriter(mFileWriter);
+            } else {
+                try {
+                    writer = new CSVWriter(new FileWriter(filePath));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+            String currentDateandTime = sdf.format(new Date());
+            String[] data = {event.values[0]+"", currentDateandTime};
+
+            writer.writeNext(data);
+
+            try {
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
         if(event.sensor==mheart){
             String baseDir = Environment.getExternalStorageDirectory().getAbsolutePath();
             Log.e("directory", baseDir);
@@ -165,41 +199,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        if(event.sensor==mProximity) {
-            /*String baseDir = Environment.getExternalStorageDirectory().getAbsolutePath();
-            Log.e("directory", baseDir);
-            String fileName = "AnalysisData.csv";
-            String filePath = baseDir + File.separator + fileName;
-            File f = new File(filePath);
-            CSVWriter writer = null;
-// File exist
-            if (f.exists() && !f.isDirectory()) {
-                FileWriter mFileWriter = null;
-                try {
-                    mFileWriter = new FileWriter(filePath, true);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                writer = new CSVWriter(mFileWriter);
-            } else {
-                try {
-                    writer = new CSVWriter(new FileWriter(filePath));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
-            String currentDateandTime = sdf.format(new Date());
-            String[] data = {lightdata, proximitydata, currentDateandTime};
-
-            writer.writeNext(data);
-
-            try {
-                writer.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
         }
     }
 
