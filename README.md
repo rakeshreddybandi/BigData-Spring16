@@ -6,3 +6,9 @@ Lab 1- Map-Reduce pseudo code for Sum of Two Matrices
    
 Lab 2- R script for KMeans and ROBO and smartwatch app
    ->code and documentation
+
+Lab 3- Folder Lab 3 contains the source , Data and documentation for Lab assignment 3
+
+Lab 4- Folder Lab 4 contains the Source and Documentation  Lab assignment  4
+
+Lab 5- Soon
