@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Export-Package: org.joda.convert;version=1.3.1
+Implementation-Title: org.joda.convert
+Implementation-Version: 1.3.1
+Built-By: stephen
+Specification-Vendor: Joda.org
+Package: org.joda.convert
+Bundle-Name: Joda-Convert
+Created-By: Apache Maven
+Bundle-Vendor: Joda.org
+Implementation-Vendor: Joda.org
+Implementation-Vendor-Id: org.joda
+Bundle-Version: 1.3.1
+Build-Jdk: 1.7.0_11
+Bundle-ManifestVersion: 2
+Specification-Title: Joda-Convert
+Bundle-License: Apache 2.0
+Specification-Version: 1.3
+Bundle-SymbolicName: joda-convert
+Bundle-DocURL: http://joda-convert.sourceforge.net/
+Extension-Name: joda-convert
+Archiver-Version: Plexus Archiver
+
