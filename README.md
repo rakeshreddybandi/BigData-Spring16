@@ -11,4 +11,4 @@ Lab 3- Folder Lab 3 contains the source , Data and documentation for Lab assignm
 
 Lab 4- Folder Lab 4 contains the Source and Documentation  Lab assignment  4
 
-Lab 5- Soon
+Lab 5&6- Folder Lab 5&6 contains the source and Documentation for Lab assignment 5&6 

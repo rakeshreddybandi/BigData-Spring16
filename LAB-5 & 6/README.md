@@ -2,4 +2,4 @@
 This repository contains the Lab assignments of BigData Analytics and Applications.
 
 Lab 5
-Soon
+We have implemented twitter streaming in spark scala and provided analytics on twitter data.
