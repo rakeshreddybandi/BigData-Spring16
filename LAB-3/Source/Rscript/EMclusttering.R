@@ -1,5 +1,0 @@
-expectclust<-Mclust(myData[,1:3],G=3)
-plot(expectclust,what=c("classification"),dimens=c(1,2,3))
-plot(expectclust,what=c("classification"),dimens=c(1,2)) 
-plot(expectclust,what=c("classification"),dimens=c(2,3))
-plot(expectclust,what=c("classification"),dimens=c(1,3))
