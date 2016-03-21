@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fbf5f6">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="387dp"
+        android:layout_height="wrap_content"
+        android:text="Enter URL:"/>
+
+    <TextView
+        android:id="@+id/entry"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"
+        android:layout_below="@id/label"/>
+
+   <Button
+     android:id="@+id/concept_button"
+     android:layout_height="wrap_content"
+     android:layout_width="match_parent"
+     android:text="@string/button_concepts"
+     android:layout_below="@id/entry"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentStart="true"
+       android:layout_alignParentRight="true"
+       android:layout_alignParentEnd="true" />
+
+   <Button
+     android:id="@+id/entity_button"
+     android:layout_height="wrap_content"
+     android:layout_width="match_parent"
+     android:text="@string/button_entities"
+
+
+       android:layout_below="@+id/text_button"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentStart="true"
+       android:layout_alignParentRight="true"
+       android:layout_alignParentEnd="true" />
+
+   <Button
+   	 android:id="@+id/text_button"
+     android:layout_height="wrap_content"
+     android:layout_width="match_parent"
+     android:text="@string/button_text"
+     android:layout_below="@id/concept_button"
+       android:layout_alignRight="@+id/imageView1"
+       android:layout_alignEnd="@+id/imageView1"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/button_image_classify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_image_classify"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+      android:id="@+id/TextView01"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentLeft="true"
+
+      android:scrollbars="vertical"
+      android:text="@+id/TextView01"
+        android:layout_below="@+id/text_button"
+            android:layout_weight="1.01"
+            android:textColor="#8754f5" />
+
+        <ImageView
+      android:id="@+id/imageView1"
+      android:layout_width="match_parent"
+      android:layout_height="210dp"
+
+      android:contentDescription="@string/kitten"
+      android:src="@drawable/persona"
+      android:layout_alignTop="@+id/TextView01" />
+    </LinearLayout>
+</RelativeLayout>
