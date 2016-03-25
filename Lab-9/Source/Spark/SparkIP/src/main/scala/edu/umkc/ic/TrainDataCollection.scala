@@ -18,8 +18,8 @@ import org.apache.http.impl.client.DefaultHttpClient
   * Created by Mayanka on 14-Mar-16.
   */
 object TrainDataCollection {
-  val PATH = "instadata4/"
-  val PATHR = "instadata4/recommendation"
+  val PATH = "instadata5/"
+  val PATHR = "instadata5/recommendation"
   val fileR = new PrintStream(PATHR + ".txt")
 
   @throws(classOf[Exception])
