@@ -1,15 +1,15 @@
 # BigData-Spring16
 This repository contains the Lab assignments of BigData Analytics and Applications.
 
-Lab 9
-    
-	Spark ML Lib (with Instagramstreaming and data from smart devices) and Smart Application
-	1)Image collection andsentimental analysis based on the imagetags using Instagramstreaming (related to your project)
-		a.Training Datasets:Instagram Streaming/Categorized Image (e.g., Static UEC Food Dataset) and meta data 
-		b.Testing Datasetse.g., Image, UserGroup, Category, Rating(Instagramstreaming)
-	2)Image Classification based on the categories related to your project 
-	3)Image-based Recommendation system(related to your own project) 
-		a.Therating based on sentiment analysisof Instagrammetadata
-		b.Expected outcome is to make a recommendationbased on user image input or profile(e.g., preferences, location, gender, age)
-	4)Instagramtrend notification to smartphone/smartwatch
-	5)MobileRecommendationthrough smartphone/smartwatchusing your ML application
+Lab 10
+   
+	   1. Audio Classification and Smart Phone Notification 
+	Extend your lab 7, 8, 9workfor a complete workflow integrating the following features
+	1) Audio collection based on the tags (related to your project)
+	a. Training Datasets (audio data from smart devices or online sound repositories such as https://www.freesound.org/)
+	b. Testing Datasets (audio data from smart devices)
+	2) Audio Classification based on the categories related to your project 
+	3) Notification to smartphone/smartwatch
+	4) Bonus points: Music Recommendation system (related to your own project) 
+	a. make a recommendation based on user profile (e.g., preferences, location, gender, age)
+	b. Recommendation through smartphone/smartwatch using your ML application
